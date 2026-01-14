@@ -1,0 +1,311 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  color: aliceblue;
+}
+
+ul {
+  list-style: none;
+}
+
+#canvas-main {
+  &::after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-image: url('/background-xl.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all 0.3s linear;
+  }
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 45px;
+  transition: all 1s cubic-bezier(.25, .46, .45, .94);
+  .logo {
+    width: 100px;
+  }
+  p {
+    font-size: 0.9rem;
+  }
+  .site-header-button {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5px;
+    height: 30px;
+    width: 32px;
+    justify-content: space-between;
+    padding: 6px 2px;
+    background: transparent;
+    border: none;
+    align-items: end;
+    text-align: right;
+    cursor: pointer;
+    .button-bar {
+      background: white;
+      height: 2px;
+      width: 100%;
+      text-align: right;
+      transition: width 0.5s 
+      cubic-bezier(.25, .46, .45, .94);
+    }
+    .button-bar--2 {
+      width: 70%;
+    }
+    &:hover {
+    .button-bar--2 {
+        width: 100%;
+      } 
+    }
+  }
+}
+
+section {
+  min-height: 100vh;
+  position: relative;
+  z-index: 2;
+}
+
+#section-1 {
+  position: relative;
+  
+  .middle {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 50%;
+    height: 100vh;
+    position: relative;
+    h1 {
+      text-align: right;
+      font-family: serif;
+      font-size: 8.5714285714rem;
+      letter-spacing: -0.04em;
+      line-height: 0.8916666667;
+      margin-top: 3rem;
+    }
+    .right {
+      padding: 2rem;
+      margin-top: auto;
+      max-width: 475px;
+      line-height: 1.3;
+      p {
+        color: rgba(160,168,220,0.7);
+        font-size: 1rem;
+      }
+    }
+    h3 {
+      color: #fff;
+      margin-bottom: 20px;
+      font-weight: 300;
+      font-size: 1.5rem;
+    }
+    ul {
+      display: flex;
+      margin-top: 4rem;
+      color: #fff;
+      font-size: 0.7rem;
+      line-height: 1;
+      list-style: none;
+      li:not(:first-child):before {
+        content: "/";
+        display: inline-block;
+        margin-right: 10px;
+        margin-left: 10px;
+        vertical-align: middle;
+      }
+    }
+  
+  }
+  .line-one {
+    width: 45rem;
+    height: 1px;
+    background-color: rgba(255, 0, 0, 0.5);
+    position: absolute;
+    rotate: 45deg;
+    z-index: -1;
+    transform: translate(-10rem, -35rem);
+  }
+  .line-two {
+    width: 12rem;
+    height: 1px;
+    background-color: rgba(255, 0, 0, 0.5);
+    position: absolute;
+    rotate: -45deg;
+    right: 25rem;
+    top: 20rem;
+  }
+}
+
+#section-2 {
+  
+  @media (min-width: 64em) {
+    padding-top: calc(50vh - 45px);
+    padding-bottom: calc(50vh - 85px);
+  }
+  h5 {
+    font-family: serif;
+    font-weight: 700;
+    color: #646d9e;
+    font-size: 0.5rem;
+    letter-spacing: 0.5em;
+    line-height: 1;
+    text-transform: uppercase;
+    margin-bottom: 4rem;
+  }
+  ul {
+    display: flex;
+    gap: 3rem;
+    flex-direction: column;
+  }
+  li {
+    font-size: 5.5rem;
+    position: relative;
+    transition: all .8s cubic-bezier(.215, .61, .355, 1) .1s, color .8s cubic-bezier(.215, .61, .355, 1) .1s;
+    span {
+      font-size: 0.6rem;
+      letter-spacing: 0.36em;
+      line-height: 1;
+      text-transform: uppercase;
+      position: absolute;
+      top: 1.4rem;
+      left: 0;
+      transform: translateX(calc(-100% - 70px));
+      font-weight: 300;
+    }
+  }
+  a {
+    color: rgba(187, 194, 229, 0.3);
+    text-decoration: none;
+    font-weight: 100;
+    letter-spacing: 0.5px;
+    transition: all .8s cubic-bezier(.215, .61, .355, 1) .1s;
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+.hover-images {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  .bg-img {
+    width: 100%;
+    height: 100%;
+    scale: 1.2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 0.4s linear;
+  }
+  #tomorrowland {
+    background: rgba(6, 6, 37, 0.8) url('/tommorowland.png') no-repeat;
+    background-size: cover;
+  }
+  #navy-pier {
+    background: rgba(4, 4, 34, 0.8) url('/navy-pier.png') no-repeat;
+    background-size: cover;
+  }
+  #msi-chicago {
+    background: rgba(4, 24, 54, 0.8) url('/msi-chicago.png') no-repeat;
+    background-size: cover;
+  }
+  #phone {
+    background: rgba(0, 14, 22, 0.8) url('/phone.png') no-repeat;
+    background-size: cover;
+  }
+  #kikk {
+    background: rgba(14, 14, 145, 0.8) url('/kikk.png') no-repeat;
+    background-size: cover;
+  }
+  #kennedy {
+    background: rgba(5, 41, 56, 0.8) url('/kennedy.png') no-repeat;
+    background-size: cover;
+  }
+  #opera {
+    background: rgba(126, 0, 0, 0.8) url('/opera.png') no-repeat;
+    background-size: cover;
+  }
+}
+
+main:has(li a:hover) #canvas-main::after {
+  opacity: 0;
+}
+
+main:has(li [img-title="tomorrowland"]:hover) #tomorrowland, 
+main:has(li [img-title="navy-pier"]:hover) #navy-pier,
+main:has(li [img-title="msi-chicago"]:hover) #msi-chicago, 
+main:has(li [img-title="phone"]:hover) #phone, 
+main:has(li [img-title="kikk"]:hover) #kikk, 
+main:has(li [img-title="kennedy"]:hover) #kennedy, 
+main:has(li [img-title="opera"]:hover) #opera {
+  scale: 1;
+  opacity: 1;
+}
+
+#section-3 {
+  z-index: 0;
+  min-height: 80vh;
+  .middle {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 50%;
+    position: relative;
+    
+    h3 {
+      color: #fff;
+      margin-bottom: 20px;
+      font-weight: 400;
+      font-size: 3.5rem;
+      font-family: serif;
+    }  
+  }
+}
+
+#section-4 {
+  min-height: initial;
+  padding: 0 0 0;
+  .middle {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 50%;
+    position: relative;
+    
+    .right {
+      display: flex;
+      gap: 1rem;
+      margin-top: auto;
+      max-width: 475px;
+      line-height: 1.3;
+      p {
+        color: rgba(160,168,220,0.7);
+        font-size: 0.8rem;
+      }
+    }  
+  }
+}
