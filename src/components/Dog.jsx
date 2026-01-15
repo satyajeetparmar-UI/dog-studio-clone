@@ -101,8 +101,8 @@ const Dog = () => {
         )
     }
 
-  dogMaterial.onBeforeCompile = onBeforeCompile
-  branchMaterial.onBeforeCompile = onBeforeCompile
+  dogMaterial.onBeforeCompile = onBeforeCompile // for dog texture 
+  branchMaterial.onBeforeCompile = onBeforeCompile // for branch and leaf texture 
   
 
   model.scene.traverse((child) => {
@@ -123,7 +123,7 @@ const Dog = () => {
         endTrigger: "#section-4",
         start: "top top",
         end: "bottom bottom",
-        markers: true,
+        markers: false,
         scrub: true
       }
     })
