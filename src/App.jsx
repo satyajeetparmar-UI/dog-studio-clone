@@ -6,6 +6,9 @@ function App() {
 
   return (
     <>
+      <div className="gotodesktop">
+        The animation is not available on mobile devices. Please view it on desktop for the best experience.
+      </div>
       <main>
         <div className="hover-images">
           <div className='bg-img' id='tomorrowland'></div>

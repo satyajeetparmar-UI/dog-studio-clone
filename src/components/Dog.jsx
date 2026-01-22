@@ -116,6 +116,26 @@ const Dog = () => {
 
   const dogModal = useRef(model)
 
+  // modal move on mousemove
+  const canvas = document.querySelector("canvas");
+  
+  document.addEventListener('mousemove', mouseMoveFunc);
+  function mouseMoveFunc(e) {
+    const depth = 20;
+    const moveX = ((e.pageX)-(window.innerWidth/2))/depth;
+    const moveY = ((e.pageY)-(window.innerHeight/2))/depth;
+    gsap.to(canvas, {
+      duration: 1,
+      x: moveX,
+      y: moveY,
+      ease: "slow",
+      stagger: 0.008,
+      overwrite: true
+    });
+  }
+
+
+
   useGSAP(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -127,10 +147,10 @@ const Dog = () => {
         scrub: true
       }
     })
-
+    
     tl
     .to(dogModal.current.scene.position, {
-      y: "+=0.1",
+      y: "+=0.05",
       z: "-=0.5",
     })
     .to(dogModal.current.scene.rotation, {
@@ -258,13 +278,12 @@ const Dog = () => {
       })
     })
     
-
   }, [])
 
   return (
     <>
-      <primitive object={model.scene} position={[0.2, -0.63, 0.05]} rotation={[0,Math.PI/8,0]} />
-      <directionalLight position={[0, 5, 5]} color={0xFFFFFF} intensity={10} />
+      <primitive object={model.scene} position={[0.15, -0.65, 0.05]} rotation={[0,Math.PI/8,0]} />
+      <directionalLight position={[0, 5, 5]} color={0xFFFFFF} intensity={5} />
     </>
   )
 }
