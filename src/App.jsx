@@ -65,6 +65,7 @@ function App() {
                 <h1>We <br/> Make <br/> Good <br/> Shit</h1>
               </div>
               <div className="right">
+                
                 <h3>
                   Dogstudio is a multidisciplinary creative studio at the intersection of art, design and technology.
                 </h3>
@@ -76,14 +77,13 @@ function App() {
                 <ul>
                   <li>Facebook</li>
                   <li>Instagram</li>
-                  <li>Dribbble</li>
+                  <li>Dribble</li>
                   <li>Twitter</li>
                   <li>Newsletter</li>
                 </ul>
 
               </div>
             </div>  
-
           </div>
           
           <div className="line-one"></div>
@@ -144,7 +144,7 @@ function App() {
               <div className="right">
                 
               </div>
-            </div>  
+[]            </div>  
           </div>
         </section>
 
